@@ -1,5 +1,11 @@
 HEADERS += \
-    $$PWD/page_login.h
+    $$PWD/LoginViewModel.h \
+    $$PWD/MainViewModel.h \
+    $$PWD/NimApplication.h
 
 SOURCES += \
-    $$PWD/page_login.cpp
+    $$PWD/LoginViewModel.cpp \
+    $$PWD/MainViewModel.cpp \
+    $$PWD/NimApplication.cpp
+
+DISTFILES +=

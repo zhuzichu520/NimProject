@@ -2,4 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
     </qresource>
+    <qresource prefix="/qml/views">
+        <file>LoginActivity.qml</file>
+    </qresource>
 </RCC>

@@ -1,11 +1,11 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 
-Window {
-    width: 640
-    height: 480
-    visible: true
-    title: qsTr("Hello World")
+import de.skycoder42.QtMvvm.Core 1.1
+import de.skycoder42.QtMvvm.Quick 1.1
+import de.skycoder42.QtMvvm.Sample 1.1
 
 
+QtMvvmApp {
+    title: qsTr("QtMvvm Quick Sample")
 }
