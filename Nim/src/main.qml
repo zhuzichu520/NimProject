@@ -7,5 +7,5 @@ import de.skycoder42.QtMvvm.Sample 1.1
 
 
 QtMvvmApp {
-    title: qsTr("QtMvvm Quick Sample")
+    title: qsTr("Nim Dmeo")
 }

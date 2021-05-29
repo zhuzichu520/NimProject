@@ -2,8 +2,6 @@
 #define LOGINVIEWMODEL_H
 
 #include <QtMvvmCore/ViewModel>
-#include <base/ieventservice.h>
-
 class LoginViewModel : public QtMvvm::ViewModel
 {
     Q_OBJECT
