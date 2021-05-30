@@ -1,11 +1,36 @@
 <RCC>
     <qresource prefix="/">
-        <file>res/activity/App.qml</file>
-        <file>res/activity/LoginActivity.qml</file>
-        <file>res/image/bg_login.png</file>
-        <file>res/image/ic_login_key.png</file>
-        <file>res/image/ic_login_password.png</file>
-        <file>res/image/ic_toolbar_close.png</file>
-        <file>res/image/ic_toolbar_min.png</file>
+        <file>res/activities/App.qml</file>
+        <file>res/activities/LoginActivity.qml</file>
+        <file>res/components/TopBar.qml</file>
+        <file>res/images/bg_login.png</file>
+        <file>res/images/ic_login_key.png</file>
+        <file>res/images/ic_login_password.png</file>
+        <file>res/images/ic_toolbar_close.png</file>
+        <file>res/images/ic_toolbar_min.png</file>
+        <file>res/components/AvatarView.qml</file>
+        <file>res/components/CustomButton.qml</file>
+        <file>res/activities/MainActivity.qml</file>
+        <file>res/images/ic_add_friend.png</file>
+        <file>res/images/ic_avatar.png</file>
+        <file>res/images/ic_note.png</file>
+        <file>res/images/ic_setting.png</file>
+        <file>res/images/bg_main.png</file>
+        <file>res/activities/MessageActivity.qml</file>
+        <file>res/images/ic_search.png</file>
+        <file>res/images/ic_team_group.png</file>
+        <file>res/images/bg_message_top.png</file>
+        <file>res/images/ic_message_close.png</file>
+        <file>res/images/ic_message_group.png</file>
+        <file>res/images/ic_message_logo.png</file>
+        <file>res/images/ic_message_max.png</file>
+        <file>res/images/ic_message_min.png</file>
+        <file>res/images/ic_message_bottom_capture.png</file>
+        <file>res/images/ic_message_bottom_down.png</file>
+        <file>res/images/ic_message_bottom_face.png</file>
+        <file>res/images/ic_message_bottom_file.png</file>
+        <file>res/images/ic_message_bottom_font.png</file>
+        <file>res/images/ic_message_bottom_history.png</file>
     </qresource>
+    <qresource prefix="/new/prefix1"/>
 </RCC>
