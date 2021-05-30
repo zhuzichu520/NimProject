@@ -1,8 +1,11 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
-    </qresource>
-    <qresource prefix="/qml/views">
-        <file>LoginActivity.qml</file>
+        <file>res/activity/App.qml</file>
+        <file>res/activity/LoginActivity.qml</file>
+        <file>res/image/bg_login.png</file>
+        <file>res/image/ic_login_key.png</file>
+        <file>res/image/ic_login_password.png</file>
+        <file>res/image/ic_toolbar_close.png</file>
+        <file>res/image/ic_toolbar_min.png</file>
     </qresource>
 </RCC>

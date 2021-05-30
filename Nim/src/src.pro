@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += core gui qml quick mvvmquick mvvmcore widgets quickcontrols2
+QT += core gui qml quick quickcontrols2
 include(./base/base.pri)
 include(./http/http.pri)
 include(./db/db.pri)

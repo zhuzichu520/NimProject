@@ -1,11 +1,11 @@
 HEADERS += \
+    $$PWD/LoginModel.h \
     $$PWD/LoginViewModel.h \
-    $$PWD/MainViewModel.h \
-    $$PWD/NimApplication.h
+    $$PWD/MainViewModel.h
 
 SOURCES += \
+    $$PWD/LoginModel.cpp \
     $$PWD/LoginViewModel.cpp \
-    $$PWD/MainViewModel.cpp \
-    $$PWD/NimApplication.cpp
+    $$PWD/MainViewModel.cpp
 
 DISTFILES +=

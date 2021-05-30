@@ -1,6 +1,7 @@
-#include "MainViewModel.h"
+﻿#include "MainViewModel.h"
 
 MainViewModel::MainViewModel()
 {
+
 
 }
