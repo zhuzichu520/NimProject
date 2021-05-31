@@ -14,6 +14,15 @@ Window{
     flags:Qt.FramelessWindowHint
     color: "#fefefe"
 
+    ListModel{
+        id:messageModel
+        ListElement{
+            name:"符影姣"
+            time:"2021/03/24  10:34:54"
+            content:"2要主动发现并解决产品中存在的问题。"
+        }
+    }
+
     MouseArea {
         anchors.fill: parent
         acceptedButtons: Qt.LeftButton
@@ -22,11 +31,55 @@ Window{
             clickPos  = Qt.point(mouse.x,mouse.y)
         }
         onPositionChanged: {
-            //鼠标偏移量
             var delta = Qt.point(mouse.x-clickPos.x, mouse.y-clickPos.y)
-            //如果mainwindow继承自QWidget,用setPos
             root.setX(root.x+delta.x)
             root.setY(root.y+delta.y)
+        }
+    }
+
+
+    Rectangle {
+        id:content
+        anchors{
+            top:top.bottom
+            bottom: bottom.top
+            left:parent.left
+            right:parent.right
+        }
+        color:"#FFF5F6F8"
+        ListView{
+            id:list
+            anchors.fill: parent
+            model:messageModel
+            delegate: ItemDelegate{
+                width: parent.width
+                highlighted: true
+                background: Column{
+                    anchors.top:parent.top
+                    topPadding: 6
+                    bottomPadding: 6
+                    Text {
+                        id: item_name
+                        text: qsTr(name+"  "+time)
+                        font.pixelSize: 12
+                        color: "#FF008040"
+                        leftPadding: 6
+                    }
+                    Text {
+                        id: item_msg
+                        text: qsTr(content)
+                        font.pixelSize: 13
+                        color: "#FF191F24"
+                        leftPadding: 12
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        rightPadding: 12
+                        verticalAlignment: TextInput.AlignLeft
+                        wrapMode: TextEdit.Wrap
+                    }
+                }
+            }
+            ScrollIndicator.vertical: ScrollIndicator { }
         }
     }
 
@@ -142,16 +195,6 @@ Window{
         }
     }
 
-    Rectangle {
-        id:content
-        anchors{
-            top:top.bottom
-            bottom: bottom.top
-            left:parent.left
-            right:parent.right
-        }
-        color:"#FFF5F6F8"
-    }
 
     Rectangle{
         id:bottom
@@ -274,16 +317,29 @@ Window{
                 right: parent.right
                 rightMargin: 7
             }
-            Text {
-                text: qsTr("发送")
-                anchors.centerIn: parent
-                color: "#ffffff"
+            Button{
+                anchors.fill: parent
+                background: Text {
+                    text: qsTr("发送")
+                    anchors.centerIn: parent
+                    color: "#ffffffff"
+                }
+                onClicked: {
+                    var content = text_input.text
+                    if(content ==""){
+                        return
+                    }
+                    messageModel.append({name:"符影姣",content,time:"2021/03/24  10:34:54"})
+                    text_input.text=""
+                    list.positionViewAtEnd()
+                }
             }
             color: "#FF197DFF"
         }
 
 
         ScrollView{
+            id:scroll
             focus: true
             anchors{
                 top:bottom_menu.top
@@ -294,8 +350,9 @@ Window{
                 right: parent.right
             }
             TextArea{
+                id:text_input
                 font{
-                    pixelSize: 12
+                    pixelSize: 14
                 }
                 placeholderText:"请输入消息"
                 focus: true

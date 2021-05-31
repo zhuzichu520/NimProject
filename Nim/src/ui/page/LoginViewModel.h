@@ -2,37 +2,34 @@
 #define LOGINVIEWMODEL_H
 
 #include <QObject>
-#include "LoginModel.h"
+#include <QQuickWindow>
+#include <base/BaseViewModel.h>
 
 class LoginViewModel : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+    Q_PROPERTY(QString username READ username WRITE setUserName NOTIFY nameChanged)
     Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
-    Q_PROPERTY(QString state READ state WRITE setState NOTIFY stateChanged)
 
 public:
     explicit LoginViewModel(QObject *parent = 0);
-    LoginModel* model();
-    void setModel(LoginModel *model);
-    QString name();
-    void setName(const QString &name);
+    Q_INVOKABLE void onCompleted(QObject* root);
+    Q_INVOKABLE void onClickLogin();
+    QString username();
     QString password();
+    void setUserName(const QString &username);
     void setPassword(const QString &password);
-    QString state();
-    void setState(const QString &state);
-    Q_INVOKABLE void loginButtonClicked();
+
 signals:
     void nameChanged(const QString &);
     void passwordChanged(const QString &);
-    void stateChanged(const QString &);
+
+    qmlsaaa:
+    void startMainActivity();
 
 private:
-    QString m_name;
+    QString m_username;
     QString m_password;
-    QString m_state;
-
-    LoginModel *m_model;
 };
 #endif // LOGINVIEWMODEL_H

@@ -1,3 +1,4 @@
-HEADERS +=
+HEADERS += \
+    $$PWD/BaseViewModel.h
 
 SOURCES +=

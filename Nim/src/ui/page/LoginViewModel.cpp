@@ -4,35 +4,23 @@
 #include <QDebug>
 #include <QStringLiteral>
 
-LoginViewModel::LoginViewModel(QObject *parent) : QObject(parent),
-    m_model(NULL)
+LoginViewModel::LoginViewModel(QObject *parent) : QObject(parent)
 {}
 
-LoginModel *LoginViewModel::model()
-{
-    return m_model;
+void LoginViewModel::onCompleted(QObject* root){
+    QMetaObject::invokeMethod(root,"startMainActivity");
+    qDebug() << QStringLiteral("登录页面加载完成:")<<root->objectName();
 }
 
-void LoginViewModel::setModel(LoginModel *model)
+QString LoginViewModel::username()
 {
-    m_model = model;
-
-    if (m_model)
-    {
-        connect(this, &LoginViewModel::nameChanged, m_model, &LoginModel::setName);
-        connect(this, &LoginViewModel::passwordChanged, m_model, &LoginModel::setPassword);
-    }
+    return m_username;
 }
 
-QString LoginViewModel::name()
+void LoginViewModel::setUserName(const QString &username)
 {
-    return m_name;
-}
-
-void LoginViewModel::setName(const QString &name)
-{
-    m_name = name;
-    emit nameChanged(m_name);
+    m_username = username;
+    emit nameChanged(username);
 }
 
 QString LoginViewModel::password()
@@ -46,33 +34,13 @@ void LoginViewModel::setPassword(const QString &password)
     emit passwordChanged(m_password);
 }
 
-QString LoginViewModel::state()
-{
-    return m_state;
-}
-
-void LoginViewModel::setState(const QString &state)
-{
-    m_state = state;
-    emit stateChanged(state);
-}
-
 /**
  * @brief 点击登录
  */
-void LoginViewModel::loginButtonClicked()
+void LoginViewModel::onClickLogin()
 {
-     qDebug() << QStringLiteral("点击了");
-    if (m_model)
-    {
-        QString errorCode;
-        if (!m_model->login(&errorCode))
-        {
-            setState("Failed:" + errorCode);
-        }
-        else
-        {
-            setState("Successed");
-        }
-    }
+    qDebug() << "username:"<<username();
+    qDebug() << "password:"<<password();
+    //    close()
+    //            Qt.createComponent("MainActivity.qml").createObject(root).show(
 }

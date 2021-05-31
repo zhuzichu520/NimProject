@@ -31,6 +31,6 @@
         <file>res/images/ic_message_bottom_file.png</file>
         <file>res/images/ic_message_bottom_font.png</file>
         <file>res/images/ic_message_bottom_history.png</file>
+        <file>res/model/MessageModel.qml</file>
     </qresource>
-    <qresource prefix="/new/prefix1"/>
 </RCC>

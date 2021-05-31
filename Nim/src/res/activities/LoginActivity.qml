@@ -14,6 +14,10 @@ Window{
     flags:Qt.FramelessWindowHint
     color: "#fefefe"
 
+    Component.onCompleted: {
+        viewModel.onCompleted(root)
+    }
+
     Rectangle {
 
         anchors.fill: parent
@@ -35,9 +39,6 @@ Window{
                 horizontalCenter: parent.horizontalCenter
                 top: parent.top
                 topMargin: 51
-            }
-            Component.onCompleted:{
-
             }
         }
 
@@ -120,6 +121,8 @@ Window{
             background: Rectangle{
                 color:"#00000000"
             }
+            text: viewModel.username
+            onTextChanged: viewModel.username = text
         }
 
         Image {
@@ -157,7 +160,9 @@ Window{
             background: Rectangle{
                 color:"#00000000"
             }
+            text: viewModel.password
             wrapMode: TextEdit.Wrap
+            onTextChanged: viewModel.password = text
         }
 
         CustomButton{
@@ -170,10 +175,10 @@ Window{
                 horizontalCenter: mask_password.horizontalCenter
                 topMargin: 36
             }
-            onClicked: {
-                close()
-                Qt.createComponent("MainActivity.qml").createObject(root).show()
+            onClicked:{
+            startMainActivity()
             }
+
         }
 
         Text {
@@ -190,6 +195,11 @@ Window{
 
     TopBar{
         color: "#00000000"
+    }
+
+    function startMainActivity(){
+        root.close()
+        Qt.createComponent("MainActivity.qml").createObject(root).show()
     }
 
 }
